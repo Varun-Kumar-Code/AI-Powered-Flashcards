@@ -50,7 +50,7 @@ body {
   transition: background-color 0.3s, transform 0.2s;
 }
   
-  #theme-toggle:hover {
+#theme-toggle:hover {
     background-color: var(--primary-hover-color);
     transform: translateY(-2px);
   }
