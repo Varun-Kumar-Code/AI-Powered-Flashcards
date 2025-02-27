@@ -38,7 +38,7 @@ body {
 
 #theme-toggle {
   position: absolute;
-  top: 20px;
+  top: 70px;
   right: 20px;
   background-color: var(--primary-color);
   color: #fff;
