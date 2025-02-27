@@ -19,7 +19,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
     /*background-color: #f8f9fa;*/
     background-color: var(--background-color);
   color: var(--text-color);
