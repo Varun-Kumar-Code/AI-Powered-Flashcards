@@ -52,7 +52,7 @@ body {
   
 #theme-toggle:hover {
   background-color: var(--primary-hover-color);
-    transform: translateY(-2px);
+  transform: translateY(-2px);
   }
 
 .card {
