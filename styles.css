@@ -48,7 +48,7 @@ body {
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  }
+}
   
   #theme-toggle:hover {
     background-color: var(--primary-hover-color);
