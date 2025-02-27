@@ -94,7 +94,7 @@ footer {
     color: #fff;
 }
 
-#login-form #register-url{
+#login-form #signup-url{
     color: #fb774b;
 }
 
@@ -112,11 +112,11 @@ footer {
     margin: 5px auto;
 }
 
-#signup-form #register-btn{
+#signup-form #signup-btn{
     background-color: #fb774b;
     color: #fff;
 }
 
-#signup-form #login-url{
+#signup-form #signup-url{
     color: #fb774b;
 }
