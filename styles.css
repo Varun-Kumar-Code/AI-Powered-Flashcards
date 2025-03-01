@@ -95,6 +95,10 @@ body {
   margin: 0 auto !important; /* Center the button horizontally */
 }
 
+.home h1 {
+  padding-bottom: 50px;
+}
+
 @media (max-width: 768px) {
   .generate-btn {
     width: 200px !important;
