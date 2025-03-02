@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image & Text Generator</title>
+    <link rel="stylesheet" href="static/abc.css">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        input, button { margin: 10px; padding: 10px; }
+        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .card {
+            width: 250px; padding: 10px; border: 1px solid #ddd;
+            border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        img { width: 100%; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h2>AI Image & Text Generator</h2>
+    <input type="text" id="user_prompt" placeholder="Enter prompt">
+    <input type="number" id="num_items" min="1" max="5" value="3">
+    <button onclick="generateContent()">Generate</button>
+    
+    <div class="card-container" id="output_cards"></div>
+
+    <script>
+        async function generateContent() {
+            const prompt = document.getElementById('user_prompt').value;
+            const num_items = parseInt(document.getElementById('num_items').value);
+            const outputDiv = document.getElementById('output_cards');
+            outputDiv.innerHTML = "<p>Generating content...</p>";
+
+            const formData = new URLSearchParams();
+            formData.append("prompt", prompt);
+            formData.append("num_items", num_items);
+
+            try {
+                const response = await fetch("/generate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: formData
+                });
+
+                const data = await response.json();
+                outputDiv.innerHTML = "";  // Clear previous results
+
+                if (data.status === "success") {
+                    data.results.forEach((item, index) => {
+                        const card = document.createElement("div");
+                        card.classList.add("card");
+
+                        let imgTag = item.image ? `<img src="${item.image}" alt="Generated Image">` : "<p>Image failed to load.</p>";
+                        card.innerHTML = `
+                            ${imgTag}
+                            <h3>Info ${index + 1}</h3>
+                            <p>${item.point}</p>
+                        `;
+                        outputDiv.appendChild(card);
+                    });
+                } else {
+                    outputDiv.innerHTML = "<p>Error generating content.</p>";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                outputDiv.innerHTML = "<p>Error generating content.</p>";
+            }
+        }
+    </script>
+</body>
+</html>
