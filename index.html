@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,6 +36,10 @@
         <h1 class="mb-4 text-primary animate__animated animate__fadeInDown">AI-Powered Flashcards</h1>
         <div class="user-input-container card p-4 shadow-lg rounded bg-dark animate__animated animate__fadeInUp">
             <textarea id="user-input" class="user-input form-control mb-3" placeholder="Enter a topic or text..."></textarea>
+             <div class="input-group">
+                <label for="card-count">Number of Flashcards:</label>
+                <input type="number" id="card-count" min="1" max="20" value="5">
+            </div>
             <button id="generate-btn" class="generate-btn btn btn-primary">Generate Flashcards <i class="fas fa-magic"></i></button>
         </div>
 
